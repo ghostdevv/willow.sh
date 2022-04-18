@@ -1,67 +1,38 @@
 <script lang="ts">
-    import {
-        Scene,
-        Engine,
-        Vector3,
-        Color3,
-        ArcRotateCamera,
-        HemisphericLight,
-        MeshBuilder,
-        Color4,
-    } from '@babylonjs/core';
+    import { GlowLayer, Vector3 } from '@babylonjs/core';
+    import { createStars } from '$lib/stars';
+    import { setup } from '$lib/setup';
+    import { onMount } from 'svelte';
 
-    const init = (canvas: HTMLCanvasElement) => {
-        const engine = new Engine(canvas);
-        const scene = new Scene(engine);
+    let canvas: HTMLCanvasElement;
 
-        const camera = new ArcRotateCamera(
-            'camera',
-            -Math.PI / 2,
-            Math.PI,
-            2,
-            new Vector3(0, 0, 0),
-            scene,
-        );
+    onMount(() => {
+        const { engine, scene } = setup(canvas);
 
-        camera.attachControl();
+        const glow = new GlowLayer('glow', scene, {
+            mainTextureSamples: 4, // anti-aliasing
+            mainTextureFixedSize: 1024,
+            blurKernelSize: 256,
+        });
 
-        const light = new HemisphericLight(
-            'light',
-            new Vector3(0, 1, 0),
-            scene,
-        );
+        glow.intensity = 1.5;
 
-        const sphere = MeshBuilder.CreateSphere('sphere', {}, scene);
-        sphere.position = new Vector3(
-            Math.random() * 600 - 300,
-            Math.random() * 600 - 300,
-            Math.random() * 600 - 300,
-        );
+        const { starMesh } = createStars(scene, 1500);
 
-        scene.clearColor = new Color4(0, 0, 0, 0);
-        scene.ambientColor = new Color3(50, 50, 50);
-
-        engine.resize();
-
-        let delta = 1;
         scene.registerBeforeRender(() => {
-            sphere.position.x *= Math.sin(delta);
-            delta += 0.001;
-            // animation stuff
+            starMesh.rotation.addInPlace(new Vector3(0, 0.00002, 0.0003));
         });
 
         engine.runRenderLoop(() => scene.render());
         window.addEventListener('resize', () => engine.resize());
 
-        return {
-            destroy: () => {
-                scene.dispose();
-            },
+        return () => {
+            scene.dispose();
         };
-    };
+    });
 </script>
 
-<canvas use:init />
+<canvas bind:this={canvas} />
 
 <style>
     canvas {
