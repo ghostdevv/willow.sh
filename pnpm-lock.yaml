@@ -1,30 +1,110 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@babylonjs/core': ^5.2.0
+  '@babylonjs/inspector': ^5.2.0
   '@sveltejs/adapter-auto': next
   '@sveltejs/kit': next
-  '@types/three': ^0.139.0
   svelte: ^3.44.0
   svelte-check: ^2.2.6
-  svelte-cubed: ^0.2.1
   svelte-preprocess: ^4.10.1
-  three: ^0.139.2
   tslib: ^2.3.1
   typescript: ~4.6.2
 
 devDependencies:
+  '@babylonjs/core': 5.2.0
+  '@babylonjs/inspector': 5.2.0
   '@sveltejs/adapter-auto': 1.0.0-next.34
   '@sveltejs/kit': 1.0.0-next.315_svelte@3.47.0
-  '@types/three': 0.139.0
   svelte: 3.47.0
   svelte-check: 2.7.0_svelte@3.47.0
-  svelte-cubed: 0.2.1
   svelte-preprocess: 4.10.6_svelte@3.47.0+typescript@4.6.3
-  three: 0.139.2
   tslib: 2.3.1
   typescript: 4.6.3
 
 packages:
+
+  /@babylonjs/core/5.2.0:
+    resolution: {integrity: sha512-xWxYUBx++9nkoJaYchEK1x6ht5JJ8MIvtSKxGZMZJzCmAn4CU6qfux9TWUqmw7jdEt9YlRFdbZn7nCQVLUa/ew==}
+    dependencies:
+      tslib: 2.3.1
+    dev: true
+
+  /@babylonjs/gui/5.2.0:
+    resolution: {integrity: sha512-o2UlafWCMrvpkrjJ4mLOCGp6hAm66xcWdryoNWOhQgfI7DrkKzUQa3XCLSIxBWu7jTa5nimIciwXpULtYWO+Lg==}
+    dependencies:
+      '@babylonjs/core': 5.2.0
+      tslib: 2.3.1
+    dev: true
+
+  /@babylonjs/inspector/5.2.0:
+    resolution: {integrity: sha512-7ASxtDLcOO87RjLhRahK2FXf36cuj6Tn//129dWzsj7WK8C7GW0CKr4u3lrteXo/3yZZuy/Ko1BEMVrE14rhXQ==}
+    peerDependencies:
+      '@types/react': '>=16.7.3'
+      '@types/react-dom': '>=16.0.9'
+    dependencies:
+      '@babylonjs/core': 5.2.0
+      '@babylonjs/gui': 5.2.0
+      '@babylonjs/loaders': 5.2.0
+      '@babylonjs/materials': 5.2.0
+      '@babylonjs/serializers': 5.2.0
+      '@fortawesome/fontawesome-svg-core': 6.1.1
+      '@fortawesome/free-regular-svg-icons': 6.1.1
+      '@fortawesome/free-solid-svg-icons': 6.1.1
+    dev: true
+
+  /@babylonjs/loaders/5.2.0:
+    resolution: {integrity: sha512-JOk9dAbPBE3tCCgJacuS9yl8uBBo74Hh4ShnTIXRu5UElRF2nFAvf15YM4DdRZ1jk0rZXupYiaHRYkHNoMR94A==}
+    dependencies:
+      '@babylonjs/core': 5.2.0
+      babylonjs-gltf2interface: 5.2.0
+      tslib: 2.3.1
+    dev: true
+
+  /@babylonjs/materials/5.2.0:
+    resolution: {integrity: sha512-h25XhbyubiRTjCgVkifm61/1V88iT0fBZAj0FK4A3NfAAsXxRFCC+cdyr8PtsIL0EIK0wiG6OHbBfRWs/VTGmg==}
+    dependencies:
+      '@babylonjs/core': 5.2.0
+      tslib: 2.3.1
+    dev: true
+
+  /@babylonjs/serializers/5.2.0:
+    resolution: {integrity: sha512-WW8GXjJ7BIpLXjfirpswRlJgj5V1qVM42Zp8012OInXWKQB7JPqupSpCMntxLZ7uL95FRRpbF6H/b20goovILg==}
+    dependencies:
+      '@babylonjs/core': 5.2.0
+      babylonjs-gltf2interface: 5.2.0
+      tslib: 2.3.1
+    dev: true
+
+  /@fortawesome/fontawesome-common-types/6.1.1:
+    resolution: {integrity: sha512-wVn5WJPirFTnzN6tR95abCx+ocH+3IFLXAgyavnf9hUmN0CfWoDjPT/BAWsUVwSlYYVBeCLJxaqi7ZGe4uSjBA==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: true
+
+  /@fortawesome/fontawesome-svg-core/6.1.1:
+    resolution: {integrity: sha512-NCg0w2YIp81f4V6cMGD9iomfsIj7GWrqmsa0ZsPh59G7PKiGN1KymZNxmF00ssuAlo/VZmpK6xazsGOwzKYUMg==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.1.1
+    dev: true
+
+  /@fortawesome/free-regular-svg-icons/6.1.1:
+    resolution: {integrity: sha512-xXiW7hcpgwmWtndKPOzG+43fPH7ZjxOaoeyooptSztGmJxCAflHZxXNK0GcT0uEsR4jTGQAfGklDZE5NHoBhKg==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.1.1
+    dev: true
+
+  /@fortawesome/free-solid-svg-icons/6.1.1:
+    resolution: {integrity: sha512-0/5exxavOhI/D4Ovm2r3vxNojGZioPwmFrKg0ZUH69Q68uFhFPs6+dhAToh6VEQBntxPRYPuT5Cg1tpNa9JUPg==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.1.1
+    dev: true
 
   /@iarna/toml/2.2.5:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
@@ -129,12 +209,6 @@ packages:
       - supports-color
     dev: true
 
-  /@types/hast/2.3.4:
-    resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
-    dependencies:
-      '@types/unist': 2.0.6
-    dev: true
-
   /@types/node/17.0.25:
     resolution: {integrity: sha512-wANk6fBrUwdpY4isjWrKTufkrXdu1D2YHCot2fD/DfWxF5sMrVSA+KN7ydckvaTCh0HiqX9IVl0L5/ZoXg5M7w==}
     dev: true
@@ -149,20 +223,16 @@ packages:
       '@types/node': 17.0.25
     dev: true
 
-  /@types/three/0.139.0:
-    resolution: {integrity: sha512-4V/jZhyq7Mv05coUzxL3bz8AuBOSi/1F0RY7ujisHTV0Amy/fnYJ+s7TSJ1/hXjZukSkpuFRgV+wvWUEMbsMbQ==}
-    dev: true
-
-  /@types/unist/2.0.6:
-    resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
-    dev: true
-
   /anymatch/3.1.2:
     resolution: {integrity: sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg==}
     engines: {node: '>= 8'}
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
+    dev: true
+
+  /babylonjs-gltf2interface/5.2.0:
+    resolution: {integrity: sha512-mOD+FsV2fLHCMNI2+rhlN8tTBFrgCMzVfbuCd8x7hYcr73lEkBiH+BAJhBNe5L37n+rCTpC+i1zjoS62YyeFtA==}
     dev: true
 
   /balanced-match/1.0.2:
@@ -526,12 +596,6 @@ packages:
       function-bind: 1.1.1
     dev: true
 
-  /hast-util-heading-rank/2.1.0:
-    resolution: {integrity: sha512-w+Rw20Q/iWp2Bcnr6uTrYU6/ftZLbHKhvc8nM26VIWpDqDMlku2iXUVTeOlsdoih/UKQhY7PHQ+vZ0Aqq8bxtQ==}
-    dependencies:
-      '@types/hast': 2.3.4
-    dev: true
-
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -835,14 +899,6 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-cubed/0.2.1:
-    resolution: {integrity: sha512-6k0m4Bg2abA0WBigqBSR5QW+aBFX/UV26W0IlrNzDVBm6rlJHt7OYeeHW9AuBZzyWq4A/gSBCoa1GNYiANFrbQ==}
-    dependencies:
-      hast-util-heading-rank: 2.1.0
-      unist-util-visit: 4.1.0
-      yootils: 0.3.1
-    dev: true
-
   /svelte-hmr/0.14.11_svelte@3.47.0:
     resolution: {integrity: sha512-R9CVfX6DXxW1Kn45Jtmx+yUe+sPhrbYSUp7TkzbW0jI5fVPn6lsNG9NEs5dFg5qRhFNAoVdRw5qQDLALNKhwbQ==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -908,10 +964,6 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
-  /three/0.139.2:
-    resolution: {integrity: sha512-gV7q7QY8rogu7HLFZR9cWnOQAUedUhu2WXAnpr2kdXZP9YDKsG/0ychwQvWkZN5PlNw9mv5MoCTin6zNTXoONg==}
-    dev: true
-
   /tiny-glob/0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
     dependencies:
@@ -934,25 +986,6 @@ packages:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
-
-  /unist-util-is/5.1.1:
-    resolution: {integrity: sha512-F5CZ68eYzuSvJjGhCLPL3cYx45IxkqXSetCcRgUXtbcm50X2L9oOWQlfUfDdAf+6Pd27YDblBfdtmsThXmwpbQ==}
-    dev: true
-
-  /unist-util-visit-parents/5.1.0:
-    resolution: {integrity: sha512-y+QVLcY5eR/YVpqDsLf/xh9R3Q2Y4HxkZTp7ViLDU6WtJCEcPmRzW1gpdWDCDIqIlhuPDXOgttqPlykrHYDekg==}
-    dependencies:
-      '@types/unist': 2.0.6
-      unist-util-is: 5.1.1
-    dev: true
-
-  /unist-util-visit/4.1.0:
-    resolution: {integrity: sha512-n7lyhFKJfVZ9MnKtqbsqkQEk5P1KShj0+//V7mAcoI6bpbUjh3C/OG8HVD+pBihfh6Ovl01m8dkcv9HNqYajmQ==}
-    dependencies:
-      '@types/unist': 2.0.6
-      unist-util-is: 5.1.1
-      unist-util-visit-parents: 5.1.0
     dev: true
 
   /vite/2.9.5:
@@ -989,8 +1022,4 @@ packages:
 
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
-    dev: true
-
-  /yootils/0.3.1:
-    resolution: {integrity: sha512-A7AMeJfGefk317I/3tBoUYRcDcNavKEkpiPN/nQsBz/viI2GvT7BtrqdPD6rGqBFN8Ax7v4obf+Cl32JF9DDVw==}
     dev: true
