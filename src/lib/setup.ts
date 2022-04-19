@@ -13,12 +13,19 @@ export const setup = (canvas: HTMLCanvasElement) => {
 
     const camera = new ArcRotateCamera(
         'camera',
-        -Math.PI / 2,
-        Math.PI,
-        200,
+        0,
+        0,
+        0,
         new Vector3(0, 0, 0),
         scene,
     );
+
+    camera.setPosition(new Vector3(0, 0, -200));
+
+    camera.wheelDeltaPercentage = 0.02;
+    camera.pinchDeltaPercentage = 0.02;
+    camera.upperRadiusLimit = 300;
+    camera.lowerRadiusLimit = 5;
 
     engine.resize();
     camera.attachControl();

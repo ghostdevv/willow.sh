@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { GlowLayer, Vector3 } from '@babylonjs/core';
+    import { GlowLayer, Scene, Vector3 } from '@babylonjs/core';
     import { createStars } from '$lib/stars';
     import { setup } from '$lib/setup';
     import { onMount } from 'svelte';
@@ -15,12 +15,12 @@
             blurKernelSize: 256,
         });
 
-        glow.intensity = 1.5;
+        glow.intensity = 2;
 
         const { starMesh } = createStars(scene, 1500);
 
         scene.registerBeforeRender(() => {
-            starMesh.rotation.addInPlace(new Vector3(0, 0.00002, 0.0003));
+            starMesh.rotation.addInPlace(new Vector3(0, -0.0003, 0));
         });
 
         engine.runRenderLoop(() => scene.render());
