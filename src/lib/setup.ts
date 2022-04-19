@@ -22,9 +22,7 @@ export const setup = (canvas: HTMLCanvasElement) => {
 
     camera.setPosition(new Vector3(0, 0, -200));
 
-    camera.wheelDeltaPercentage = 0.02;
-    camera.pinchDeltaPercentage = 0.02;
-    camera.upperRadiusLimit = 300;
+    camera.upperRadiusLimit = 350;
     camera.lowerRadiusLimit = 5;
 
     engine.resize();

@@ -21,7 +21,7 @@ export const createStars = (scene: Scene, amount: number) => {
 
     starMesh.material = material;
 
-    const range = () => Scalar.RandomRange(-400, 400);
+    const range = () => Scalar.RandomRange(-300, 300);
 
     particles.initParticles = () => {
         for (let p = 0; p < particles.nbParticles; p++) {

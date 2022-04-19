@@ -17,7 +17,7 @@
 
         glow.intensity = 2;
 
-        const { starMesh } = createStars(scene, 1500);
+        const { starMesh } = createStars(scene, 700);
 
         scene.registerBeforeRender(() => {
             starMesh.rotation.addInPlace(new Vector3(0, -0.0003, 0));
