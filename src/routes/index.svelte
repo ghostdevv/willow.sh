@@ -8,11 +8,13 @@
     let canvas: HTMLCanvasElement;
 
     onMount(() => {
+        const starCount = window.innerWidth < 900 ? 500 : 1000;
         const resolution = window.innerWidth < 900 ? 1 : 4;
+
         const { engine, scene } = setup(canvas);
 
         const { skybox } = createSkybox(scene, resolution);
-        const { starMesh } = createStars(scene, 1000);
+        const { starMesh } = createStars(scene, starCount);
 
         scene.registerBeforeRender(() => {
             starMesh.rotation.addInPlace(new Vector3(0, -0.0003, 0));
