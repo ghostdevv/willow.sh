@@ -1,4 +1,4 @@
-import type { Scene } from '@babylonjs/core';
+import { Vector3, type Scene } from '@babylonjs/core';
 import {
     Color3,
     MeshBuilder,
@@ -36,6 +36,10 @@ export const createStars = (scene: Scene, amount: number) => {
                 particle.color.r = 33 / 255;
                 particle.color.g = 96 / 255;
                 particle.color.b = 236 / 255;
+            }
+
+            if (Scalar.RandomRange(0, 10) > 9) {
+                particle.scale = new Vector3(3.5, 3.5, 3.5);
             }
         }
     };
