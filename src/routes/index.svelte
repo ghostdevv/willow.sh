@@ -16,7 +16,7 @@
 
         scene.registerBeforeRender(() => {
             starMesh.rotation.addInPlace(new Vector3(0, -0.0003, 0));
-            skybox.rotation.addInPlace(new Vector3(0, -0.0001, 0));
+            skybox.rotation.addInPlace(new Vector3(0, -0.00006, 0));
         });
 
         engine.runRenderLoop(() => scene.render());
