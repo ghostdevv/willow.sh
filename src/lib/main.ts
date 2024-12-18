@@ -1,9 +1,9 @@
-import { Vector3 } from '@babylonjs/core';
+import type { Action } from 'svelte/action';
 import { createSkybox } from './skybox';
 import { createStars } from './stars';
 import { setup } from './setup';
 
-export function run(canvas: HTMLCanvasElement) {
+export const run: Action<HTMLCanvasElement> = (canvas) => {
 	const { engine, scene } = setup(canvas);
 
 	createStars(scene);
@@ -12,8 +12,10 @@ export function run(canvas: HTMLCanvasElement) {
 	engine.runRenderLoop(() => scene.render());
 	window.addEventListener('resize', () => engine.resize());
 
-	return () => {
-		scene.dispose();
-		engine.dispose();
+	return {
+		destroy() {
+			scene.dispose();
+			engine.dispose();
+		},
 	};
-}
+};

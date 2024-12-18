@@ -1,15 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { run } from '$lib/main';
-
-	let canvas: HTMLCanvasElement;
-
-	onMount(() => {
-		return run(canvas);
-	});
 </script>
 
-<canvas bind:this={canvas} />
+<canvas use:run></canvas>
 
 <style>
 	canvas {
