@@ -1,5 +1,5 @@
 <script lang="ts">
-    import 'ghostsui'
+	import 'ghostsui';
 </script>
 
 <slot />
