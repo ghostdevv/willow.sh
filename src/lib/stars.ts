@@ -1,24 +1,25 @@
-import { Vector3, type Scene } from '@babylonjs/core';
 import {
 	Color3,
 	MeshBuilder,
 	Scalar,
 	SolidParticleSystem,
 	StandardMaterial,
+	Vector3,
+	type Scene,
 } from '@babylonjs/core';
 
-export const createStars = (scene: Scene, amount: number) => {
+export function createStars(scene: Scene) {
 	const particles = new SolidParticleSystem('Stars', scene);
 	const star = MeshBuilder.CreateSphere('sphere', {});
 
-	particles.addShape(star, amount);
+	particles.addShape(star, window.innerWidth < 900 ? 500 : 1000);
 	star.dispose();
 
 	const material = new StandardMaterial('starMaterial', scene);
 	const starMesh = particles.buildMesh();
 
 	material.emissiveColor = new Color3(0.8, 0.8, 0.8);
-
+	particles.isAlwaysVisible = true;
 	starMesh.material = material;
 
 	const range = () => Scalar.RandomRange(-300, 300);
@@ -47,8 +48,7 @@ export const createStars = (scene: Scene, amount: number) => {
 	particles.initParticles();
 	particles.setParticles();
 
-	return {
-		starMesh,
-		particles,
-	};
-};
+	scene.registerBeforeRender(() => {
+		starMesh.rotation.addInPlace(new Vector3(0, -0.0003, 0));
+	});
+}

@@ -8,7 +8,7 @@ import {
 	GlowLayer,
 } from '@babylonjs/core';
 
-export const setup = (canvas: HTMLCanvasElement) => {
+export function setup(canvas: HTMLCanvasElement) {
 	const engine = new Engine(canvas);
 	const scene = new Scene(engine);
 
@@ -44,4 +44,4 @@ export const setup = (canvas: HTMLCanvasElement) => {
 		engine,
 		scene,
 	};
-};
+}
