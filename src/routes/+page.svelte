@@ -4,7 +4,7 @@
     import { Vector3 } from '@babylonjs/core';
     import { createStars } from '$lib/stars';
     import { setup } from '$lib/setup';
-    import { onMount } from 'svelte';
+    import { onMount, } from 'svelte';
 
     let canvas: HTMLCanvasElement;
 
