@@ -23,6 +23,9 @@ importers:
       '@sveltejs/vite-plugin-svelte':
         specifier: ^5.0.2
         version: 5.0.2(svelte@5.14.2)(vite@6.0.3)
+      ghostsui:
+        specifier: ^1.6.0
+        version: 1.6.0
       svelte:
         specifier: ^5.14.2
         version: 5.14.2
@@ -488,11 +491,17 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  ghostsui@1.6.0:
+    resolution: {integrity: sha512-gXg1akgRnWEmbDCbEN+5q8laXJOJdP8RqqKhpPaxk3ql0U2LEF5bfBr3wQ59LbdwdwpSK9WspOJ5Crgq2Ploow==}
+
   globalyzer@0.1.0:
     resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
 
   globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+
+  greset@2.0.0:
+    resolution: {integrity: sha512-oC3JpE4RUT3iMkkmu5uzWc0H8prJAN3Nv7kcxPlJUtWBQi16UpPm6dxseIeC+KKlevxoSBzuTQeFi71qAjWHxA==}
 
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
@@ -529,6 +538,9 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
+  postcss-value-parser@4.2.0:
+    resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
+
   postcss@8.4.49:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
@@ -536,6 +548,10 @@ packages:
   readdirp@4.0.2:
     resolution: {integrity: sha512-yDMz9g+VaZkqBYS/ozoBJwaBhTbZo3UNYQHNRw1D3UFQB8oHB4uS/tAODO+ZLjGWmUbKnIlOWO+aaIiAxrUWHA==}
     engines: {node: '>= 14.16.0'}
+
+  rfs@9.0.6:
+    resolution: {integrity: sha512-KQ0EGVP4l3B3ynUZ1UNX3UoRAeswiX+ljGRcT+MoJKXRwXSUFpVZIPsqurH9pmY/AOGBFq7KKBq9fhRCkkg+SQ==}
+    engines: {node: '>=8'}
 
   rollup@4.28.1:
     resolution: {integrity: sha512-61fXYl/qNVinKmGSTHAZ6Yy8I3YIJC/r2m9feHo6SwVAVcLT5MPwOUFe7EuURA/4m0NR8lXG4BBXuo/IZEsjMg==}
@@ -545,6 +561,9 @@ packages:
   sade@1.8.1:
     resolution: {integrity: sha512-xal3CZX1Xlo/k4ApwCFrHVACi9fBqJ7V+mwhBsuf/1IOKbBy098Fex+Wa/5QMubw09pSZ/u8EY8PWgevJsXp1A==}
     engines: {node: '>=6'}
+
+  sass-hex-rgb@1.0.1:
+    resolution: {integrity: sha512-yxHIGddIE+HPvS86Y2imuu/J4LZmss0K9/Dpos38gAC21ThbZLwE4PeA/2mN3ZLH3gXhHxBtjxf6Oi1GAIrMag==}
 
   set-cookie-parser@2.7.1:
     resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
@@ -1008,9 +1027,18 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
+  ghostsui@1.6.0:
+    dependencies:
+      greset: 2.0.0
+      sass-hex-rgb: 1.0.1
+
   globalyzer@0.1.0: {}
 
   globrex@0.1.2: {}
+
+  greset@2.0.0:
+    dependencies:
+      rfs: 9.0.6
 
   import-meta-resolve@4.1.0: {}
 
@@ -1036,6 +1064,8 @@ snapshots:
 
   picocolors@1.1.1: {}
 
+  postcss-value-parser@4.2.0: {}
+
   postcss@8.4.49:
     dependencies:
       nanoid: 3.3.8
@@ -1043,6 +1073,10 @@ snapshots:
       source-map-js: 1.2.1
 
   readdirp@4.0.2: {}
+
+  rfs@9.0.6:
+    dependencies:
+      postcss-value-parser: 4.2.0
 
   rollup@4.28.1:
     dependencies:
@@ -1072,6 +1106,8 @@ snapshots:
   sade@1.8.1:
     dependencies:
       mri: 1.2.0
+
+  sass-hex-rgb@1.0.1: {}
 
   set-cookie-parser@2.7.1: {}
 
